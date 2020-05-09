@@ -17,11 +17,14 @@ services:
 
   php:
     build: ./php
+    image: jw/php74-fpm
     depends_on:
       - redis
       - db
       - mssql
     restart: always
+    environment:
+      TZ: Asia/Hong_Kong
     volumes:
       - ./code:/code
       - ./logs:/logs
